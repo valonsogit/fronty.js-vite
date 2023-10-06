@@ -1,0 +1,10 @@
+#wise {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border: 1px solid white;
+    padding: 1rem;
+    border-radius: 1rem;
+    user-select: none;
+}

@@ -1,4 +1,4 @@
-import { typewrite } from "/src/utils/text";
+import { typewrite } from "@utils/text";
 import templateVar from "./whatever.hbs";
 import { Model, ModelComponent } from "fronty.js";
 
@@ -6,6 +6,7 @@ export class SourceModel extends Model {
     constructor() {
         super("source");
         this.message = "Go to source";
+        this.href = "https://github.com/lipido/fronty.js";
     }
     /**
      * @param {string} v
@@ -18,14 +19,13 @@ export class SourceModel extends Model {
 }
 
 export class SourceComponent extends ModelComponent {
-    constructor(sourceModel, node) {
+    constructor(sourceModel = new SourceModel(), node) {
         super(templateVar, sourceModel, node);
         this.sourceModel = sourceModel;
 
         this.intervals = [];
         this.addEventListener("click", "a", e => {
             this.intervals.forEach(i => clearInterval(i));
-            console.log(e);
             if (confirm("Are you sure you want to leave?")) {
                 const iterator = typewrite("Bye bye!");
                 const int = setInterval(() => {
@@ -33,7 +33,7 @@ export class SourceComponent extends ModelComponent {
                 }, 100);
                 this.intervals.push(int);
                 setTimeout(() => {
-                    window.location.href = e.target.href;
+                    window.location.href = this.sourceModel.href;
                 }, 2000);
             } else {
                 e.preventDefault();

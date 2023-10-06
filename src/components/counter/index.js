@@ -1,6 +1,6 @@
 import CounterTemplate from "./template.hbs";
 import { Model, ModelComponent } from "fronty.js";
-export class Counter extends Model {
+export class CounterModel extends Model {
     constructor() {
         super("counter");
         this.count = 0;
@@ -18,8 +18,8 @@ export class Counter extends Model {
 }
 
 export class CounterComponent extends ModelComponent {
-    constructor(counterModel, node) {
-        super(CounterTemplate, counterModel, node);
+    constructor(counterModel = new CounterModel(), destId) {
+        super(CounterTemplate, counterModel, destId);
         this.counterModel = counterModel;
 
         this.addEventListener("click", "#increase", () => {

@@ -1,5 +1,6 @@
 /**
  * @param {string} text
+ * @returns {Generator<string, *>}
  */
 export function* typewrite(text) {
     let i = 0;

@@ -1,0 +1,11 @@
+<ul >
+    CLICK ANYWHERE IN THE LIST TO RANDOMIZE
+    {{#each wiseItems}}
+        <li
+            fronty-component="WiseItem"
+            id="item-{{id}}"
+            key="item-{{id}}"
+            model="wiseItems[{{@index}}]"
+        ></li>
+    {{/each}}
+</ul>
